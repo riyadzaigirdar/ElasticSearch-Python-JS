@@ -129,7 +129,13 @@ print(response)
 
 # es post to doc end
 
+# es delete a doc from index posts using es_id start
 
+response = es.delete(index="posts", id="asdwe3cxc")
+
+print(response)
+
+# es delete a doc from index posts using es_id end
 
 
 
