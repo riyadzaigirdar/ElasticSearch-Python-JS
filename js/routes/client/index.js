@@ -73,12 +73,12 @@ router.get("/", async (req, res) => {
                 },
               },
               {
-                query_string: {
+                match_phrase: {
                   title: q,
                 },
               },
               {
-                query_string: {
+                match_phrase: {
                   body: q,
                 },
               },
