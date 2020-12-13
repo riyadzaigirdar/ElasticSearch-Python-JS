@@ -57,7 +57,6 @@ router.delete("/:id", (req, res) => {
 router.get("/", async (req, res) => {
   let q = req.query.q;
   if (q) {
-    console.log("yoo");
     let data = await client.search({
       index: "posts",
       type: "post",
@@ -87,11 +86,8 @@ router.get("/", async (req, res) => {
         },
       },
     });
-    console.log(data);
-    console.log(formatter(data.hits.hits));
     res.json(formatter(data.hits.hits));
   } else {
-    console.log("more");
     let data = await client.search({
       index: "posts",
       type: "post",
@@ -101,11 +97,12 @@ router.get("/", async (req, res) => {
         },
       },
     });
-    console.log(formatter(data.hits.hits));
+
     res.json(formatter(data.hits.hits));
   }
 });
 // get list of item end
+// or query
 
 // add single item in es start
 router.post("/", async (req, res) => {
