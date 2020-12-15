@@ -7,9 +7,6 @@ const logger = require("./middleware/logger");
 // app initialize
 app = express();
 
-port = process.env.port; // || 3000;
-host = process.env.host; // || "192.168.1.21";
-
 // needs to accept Content-Type application/json
 // log in console in a proper way
 app.use(logger);
@@ -19,6 +16,9 @@ app.use(express.json());
 
 // form data receiver middleware
 app.use(express.urlencoded({ extended: true }));
+
+port = process.env.port; // || 3000;
+host = process.env.host; // || "192.168.1.21";
 
 // added for elastic search client
 app.use("/es/client", require("./routes/client/index"));
