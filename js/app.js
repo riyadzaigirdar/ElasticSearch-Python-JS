@@ -21,13 +21,13 @@ port = process.env.port; // || 3000;
 host = process.env.host; // || "192.168.1.21";
 
 // added for elastic search client
-app.use("/es/client", require("./routes/client/index"));
+app.use("/es/client", require("./routes/client/"));
 // added for elastic search api
-// app.use("es/api", require("./routes/api/index"));
+app.use("/es/api", require("./routes/api/"));
 
 // app listening on a pre defined port and host from env
 app.listen(port, host, () => console.log(`server running on port:${port}`));
 
 // cant export express because it executes later and other files
 //which u import executes before it export
-module.exports = app;
+// module.exports = app;

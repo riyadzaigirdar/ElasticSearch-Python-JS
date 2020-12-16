@@ -5,6 +5,23 @@ const { formatter } = require("./utils");
 const client = require("./connection");
 const e = require("express");
 const { json } = require("express");
+const ResumeParser = require("simple-resume-parser");
+
+// just parsing the resume and sending back the parsed data
+router.post("/get-resume-parsed-data", (req, res) => {
+  const path = req.body.path;
+  console.log(path);
+  const resume = new ResumeParser(path);
+  resume
+    .parseToJSON()
+    .then((data) => {
+      // sending back the parsed data
+      res.json(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
 
 // get single item start
 router.get("/:id", async (req, res) => {
