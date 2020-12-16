@@ -1,5 +1,5 @@
-**node_modules/
-**pipfile.lock
-**pipfile
-**.env
-**package-lock.json
+node_modules/
+pipfile.lock/
+pipfile/
+.env/
+package-lock.json/
