@@ -40,6 +40,16 @@ router.get("/:id", async (req, res) => {
 });
 // get single item end
 
+// patch a single item
+
+function patch_that_doc(newData, esItem){
+    client.update({
+        index: prepareEsIndex(process.env.ES_INDEX_INDEX_NAME),
+        id: esItem._id,
+        body: {doc: newData}
+    })
+}
+
 // delete single item start
 
 router.delete("/:id", (req, res) => {
